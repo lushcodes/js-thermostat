@@ -6,7 +6,10 @@ class Thermostat {
 
     this.currentTemperature = 20;
     this.powerSave = true;
-
+    this.MINIMUM_TEMPERATURE = 10;
+    this.MAX_LIMIT_PSM_ON = 25;
+    this.MAX_LIMIT_PSM_OFF = 32;
+    
   };
 
   returnsCurrentTemperature() {
@@ -18,9 +21,9 @@ class Thermostat {
   }
 
   up(amount) {
-    if ((this.currentTemperature + amount > 25) && (this.powerSave === true)) {
+    if ((this.currentTemperature + amount > this.MAX_LIMIT_PSM_ON) && (this.powerSave === true)) {
       throw new Error('Power Saving On! Unable to exceed 25 degrees!');
-    } else if ((this.currentTemperature + amount > 32) && (this.powerSave === false)) {
+    } else if ((this.currentTemperature + amount > this.MAX_LIMIT_PSM_OFF) && (this.powerSave === false)) {
       throw new Error('Power Saving Off! Unable to exceed 32 degrees!');
     } else {
       return this.currentTemperature += amount;
@@ -28,7 +31,7 @@ class Thermostat {
   };
 
   down(amount) {
-    if((this.currentTemperature - amount) <= 10) {
+    if((this.currentTemperature - amount) <= this.MINIMUM_TEMPERATURE) {
       throw new Error('Cannot be set below 10 degrees!');
     } else {
     return this.currentTemperature -= amount;
@@ -44,6 +47,16 @@ class Thermostat {
       return this.powerSave = false;
     } else { 
       return this.powerSave = true;
+    };
+  };
+
+  currentPowerUsage() {
+    if(this.currentTemperature < 18) {
+      return "LOW";
+    } else if(this.currentTemperature <= 25) {
+      return "MEDIUM";
+    } else {
+      return "HIGH";
     };
   };
 };

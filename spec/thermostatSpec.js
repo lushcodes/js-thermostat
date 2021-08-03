@@ -32,7 +32,7 @@ describe('Thermostat', () => {
   });
 
   describe('down', () => {
-    it('increases current temperature by the amount input', () => {
+    it('decreases current temperature by the amount input', () => {
       thermostat.down(5);
       expect(thermostat.returnsCurrentTemperature()).toEqual(15);
     });
@@ -62,6 +62,21 @@ describe('Thermostat', () => {
       thermostat.up(5);
       thermostat.reset();
       expect(thermostat.returnsCurrentTemperature()).toEqual(20);
+    });
+  });
+
+  describe('currentPowerUsage', () => {
+    it('should return medium power usage if between 18 and 25', () => {
+      expect(thermostat.currentPowerUsage()).toEqual('MEDIUM');
+    });
+    it('should return high power usage if over 25', () => {
+      thermostat.changePowerSaving();
+      thermostat.up(9);
+      expect(thermostat.currentPowerUsage()).toEqual('HIGH');
+    });
+    it('should return low power usage if below 18', () => {
+      thermostat.down(9);
+      expect(thermostat.currentPowerUsage()).toEqual('LOW');
     });
   });
 });

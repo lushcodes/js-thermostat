@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="./styles.css">
+    <body>
+      <div id="main">
+      <h1 id="temperature"></h1>
+
+      <form id="controls" action="" method="">
+        <input type="button" id="up" class="button" type="submit" value="+">
+        <input type="button" id="down" class="button" type="submit" value="-">
+        <input type="button" id="reset" class="button" type="submit" value="Reset">
+      </form>
+<br>
+      <h3>Power Saving On</h3>
+      <div id="power-saving">
+        <label class="switch">
+          <input type="checkbox" id="psm">
+          <span class="slider round"></span>
+        </label>
+        <br><br>
+        <div id="power-usage" class="medium-usage"></div>
+      </div>
+
+      <script src="../src/thermostat.js"></script>
+      <script src="../src/interface.js"></script>
+      </div>
+    </body>
+  </head>
+</html>

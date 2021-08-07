@@ -67,16 +67,16 @@ describe('Thermostat', () => {
 
   describe('currentPowerUsage', () => {
     it('should return medium power usage if between 18 and 25', () => {
-      expect(thermostat.currentPowerUsage()).toEqual('MEDIUM');
+      expect(thermostat.currentPowerUsage()).toEqual(thermostat.medium-usage);
     });
     it('should return high power usage if over 25', () => {
       thermostat.changePowerSaving();
       thermostat.up(9);
-      expect(thermostat.currentPowerUsage()).toEqual('HIGH');
+      expect(thermostat.currentPowerUsage()).toEqual(thermostat.high-usage);
     });
     it('should return low power usage if below 18', () => {
       thermostat.down(9);
-      expect(thermostat.currentPowerUsage()).toEqual('LOW');
+      expect(thermostat.currentPowerUsage()).toEqual(thermostat.low-usage);
     });
   });
 });

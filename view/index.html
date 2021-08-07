@@ -4,14 +4,31 @@
     <link rel="stylesheet" href="./styles.css">
     <body>
       <div id="main">
-      <h1 id="temperature"></h1>
+        <section id="top-section">
+          <h1>Current temperature: <span id="current-temperature"></span></h1>
+          <div class="content">
+          <form id="select-city">
+            <input id="current-city" type="text" placeholder="Enter a city"></input>
+            <input type="submit"></input>
+          </form>
+          </div>
+        </section>
 
+
+        <section id="mid-section">
+          <div class="content">
+      <h1 id="temperature"></h1>
       <form id="controls" action="" method="">
         <input type="button" id="up" class="button" type="submit" value="+">
         <input type="button" id="down" class="button" type="submit" value="-">
         <input type="button" id="reset" class="button" type="submit" value="Reset">
       </form>
-<br>
+      </div>
+      </section>
+
+
+      <section id="lower-section">
+        <div class="content">
       <h3>Power Saving On</h3>
       <div id="power-saving">
         <label class="switch">
@@ -21,6 +38,8 @@
         <br><br>
         <div id="power-usage" class="medium-usage"></div>
       </div>
+      </div>
+      </section>
 
       <script src="../src/thermostat.js"></script>
       <script src="../src/interface.js"></script>

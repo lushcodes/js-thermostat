@@ -9,7 +9,7 @@ class Thermostat {
     this.MINIMUM_TEMPERATURE = 10;
     this.MAX_LIMIT_PSM_ON = 25;
     this.MAX_LIMIT_PSM_OFF = 32;
-    
+
   };
 
   returnsCurrentTemperature() {

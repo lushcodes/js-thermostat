@@ -9,7 +9,7 @@ class Thermostat {
     this.MINIMUM_TEMPERATURE = 10;
     this.MAX_LIMIT_PSM_ON = 25;
     this.MAX_LIMIT_PSM_OFF = 32;
-    
+
   };
 
   returnsCurrentTemperature() {
@@ -44,19 +44,22 @@ class Thermostat {
 
   changePowerSaving() {
     if (this.powerSave === true) {
+      console.log('OFF');
       return this.powerSave = false;
     } else { 
+      console.log('ON');
       return this.powerSave = true;
+  
     };
   };
 
   currentPowerUsage() {
     if(this.currentTemperature < 18) {
-      return "LOW";
+      return 'low-usage';
     } else if(this.currentTemperature <= 25) {
-      return "MEDIUM";
+      return 'medium-usage';
     } else {
-      return "HIGH";
+      return 'high-usage';
     };
   };
 };
